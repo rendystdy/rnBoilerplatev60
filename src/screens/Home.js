@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {connect} from 'react-redux';
+// import moduleName from '../redux/actions/actionTypes'
 
 const Home = props => {
+   console.log('home', props);
+   
   return (
     <View style={styles.container}>
       <Text>Screen Home</Text>
@@ -23,4 +27,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+const mapStateToProps = state => {
+   return {
+      count : state.count
+   }
+}
+
+export default connect(mapStateToProps)(Home);
